@@ -205,15 +205,15 @@ streamlit run frontend/streamlit_app.py
 
 ## Main UI
 
-(Add screenshot here)
+![alt text](<Screenshot 2026-05-17 172639.png>)
 
 ## PDF Generation
 
-(Add screenshot here)
+![alt text](image.png)
 
 ## Excel Export
 
-(Add screenshot here)
+![alt text](image-1.png)
 
 ---
 
