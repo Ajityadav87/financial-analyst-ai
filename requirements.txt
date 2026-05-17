@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+streamlit
+google-generativeai
+chromadb
+pymupdf
+pandas
+numpy
+python-dotenv
+reportlab
+openpyxl
+sqlalchemy
+sentence-transformers
+tiktoken
