@@ -123,11 +123,20 @@ financial-assistant/
 ---
 
 # Setup Instructions
+## Recommended Python Version
+
+This project is tested on:
+
+```text
+Python 3.11
+```
+
+Python 3.13+ or 3.14 may cause compatibility issues with some AI and PDF processing libraries.
 
 ## Step 1 — Create Virtual Environment
 
 ```bash
-python -m venv venv
+py -3.11 -m venv venv
 ```
 
 ## Step 2 — Activate Environment
