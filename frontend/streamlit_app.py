@@ -51,6 +51,15 @@ st.markdown(
 )
 
 st.write("")
+st.markdown("### Suggested Questions")
+
+st.markdown("""
+- Summarize Q1 performance
+- Compare quarterly growth trends
+- Generate financial analysis report
+- Create quarterly comparison spreadsheet
+- What were the operating margins?
+""")
 if "history" not in st.session_state:
 
     st.session_state.history = []
