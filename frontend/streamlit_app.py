@@ -63,7 +63,21 @@ st.markdown("""
 if "history" not in st.session_state:
 
     st.session_state.history = []
+with st.sidebar:
 
+    st.header("Conversation History")
+
+    if st.session_state.history:
+
+        for item in reversed(
+            st.session_state.history
+        ):
+
+            st.markdown(
+                f"**Q:** {item['question']}"
+            )
+
+            st.markdown("---")
 question = st.text_area(
     "Ask your financial question:",
     height=120
