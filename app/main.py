@@ -25,6 +25,7 @@ def generate_answer(question):
     results = retrieve_documents(question)
 
     documents = results["documents"][0]
+    distances = results["distances"][0]
 
     metadatas = results["metadatas"][0]
 
@@ -32,14 +33,19 @@ def generate_answer(question):
 
     sources = []
 
-    for doc, meta in zip(
-        documents,
-        metadatas
-    ):
+    for doc, meta, distance in zip(
+    documents,
+    metadatas,
+    distances
+):
 
         context += doc + "\n\n"
 
         source = meta["source"]
+        confidence = round(
+    (1 - distance) * 100,
+    2
+)
 
         if source not in sources:
 
@@ -59,7 +65,9 @@ def generate_answer(question):
 
     for source in sources:
 
-        citation_text += f"- {source}\n"
+        citation_text += (
+    f"[Source: {source} | Confidence: {confidence}%]\n"
+)
 
     final_response = (
     answer + citation_text
