@@ -10,7 +10,7 @@ from reportlab.lib.styles import (
 
 from reportlab.lib.pagesizes import letter
 
-
+from datetime import datetime
 def generate_pdf_report(
     text,
     output_path
@@ -35,6 +35,16 @@ def generate_pdf_report(
     story.append(
         Spacer(1, 20)
     )
+    date_paragraph = Paragraph(
+    f"Generated on: {datetime.now()}",
+    styles["Normal"]
+)
+
+    story.append(date_paragraph)
+
+    story.append(
+    Spacer(1, 20)
+)
 
     body = Paragraph(
         text.replace("\n", "<br/>"),
