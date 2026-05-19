@@ -1,5 +1,6 @@
 import google.generativeai as genai
 import os
+import time
 
 from dotenv import load_dotenv
 
@@ -10,12 +11,33 @@ genai.configure(
 )
 
 model = genai.GenerativeModel(
-    "gemini-2.5-flash"
+    "gemini-1.5-flash"
 )
 
 
 def ask_gemini(prompt):
 
-    response = model.generate_content(prompt)
+    retries = 3
 
-    return response.text
+    for attempt in range(retries):
+
+        try:
+
+            response = model.generate_content(
+                prompt
+            )
+
+            return response.text
+
+        except Exception as e:
+
+            print(
+                f"Retry {attempt+1} due to: {e}"
+            )
+
+            time.sleep(5)
+
+    return (
+        "Gemini API is temporarily busy. "
+        "Please try again later."
+    )
